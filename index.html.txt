@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vườn Xanh — Cửa hàng của tôi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">✿</span><span id="brandName">Vườn Xanh</span></a>
+  <div class="top-actions">
+    <button id="changeInfoBtn" class="btn btn-outline">⚙️ Chỉnh sửa</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-shade"></div>
+  <div class="hero-content">
+    <p class="eyebrow light" id="greeting">CHÀO MỪNG</p>
+    <h1 id="announcement">Chào mừng bạn đến với cửa hàng của tôi</h1>
+    <p class="hero-sub">Sản phẩm chất lượng, dịch vụ tận tâm.</p>
+    <div class="hero-buttons">
+      <a class="btn btn-light" href="#products">Xem sản phẩm</a>
+      <a class="btn btn-glass" href="#contact">Liên hệ</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-grid">
+  <article class="stat">
+    <span class="stat-icon">▣</span>
+    <p>Tên cửa hàng</p>
+    <h2 id="statName">Vườn Xanh</h2>
+    <small>Được bạn đặt tên</small>
+  </article>
+  <article class="stat">
+    <span class="stat-icon">◇</span>
+    <p>Sản phẩm</p>
+    <h2 id="productCount">0</h2>
+    <small>Đang hiển thị</small>
+  </article>
+  <article class="stat">
+    <span class="stat-icon">♧</span>
+    <p>Liên hệ</p>
+    <h2 id="contactInfo">0988xxxxxx</h2>
+    <small>Số điện thoại/Zalo</small>
+  </article>
+</section>
+
+<section class="section" id="products">
+  <div class="section-heading">
+    <div><p class="eyebrow">SẢN PHẨM</p><h2>Sản phẩm của tôi</h2></div>
+    <button id="addProductBtn" class="btn btn-primary">+ Thêm sản phẩm</button>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="section" id="contact">
+  <p class="eyebrow">LIÊN HỆ</p>
+  <h2>Liên hệ với tôi</h2>
+  <div class="contact-box">
+    <p id="contactText">📞 Điện thoại: 0988xxxxxx<br>💬 Zalo/SĐT: cùng số điện thoại<br>📍 Địa chỉ: Quận 1, TP.HCM</p>
+  </div>
+</section>
+
+<footer>
+  <span id="footerName">Vườn Xanh</span>
+  <span>© 2026 — Website của tôi, không cần server</span>
+</footer>
+
+<!-- Form chỉnh sửa thông tin -->
+<div id="editModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="close" id="closeModal">×</button>
+    <h2>Chỉnh sửa thông tin</h2>
+    <form id="editForm">
+      <label>Tên cửa hàng<input name="siteName" required></label>
+      <label>Lời chào<input name="greeting" required></label>
+      <label>Tiêu đề chính<input name="announcement" required></label>
+      <label>Thông tin liên hệ ngắn<input name="contactShort" required></label>
+      <label>Thông tin liên hệ chi tiết (hỗ trợ xuống dòng)<textarea name="contactFull" rows="4" required></textarea></label>
+      <div class="modal-buttons">
+        <button type="button" id="cancelEdit" class="btn btn-outline">Hủy</button>
+        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Form thêm/sửa sản phẩm -->
+<div id="productModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="close" id="closeProductModal">×</button>
+    <h2 id="productModalTitle">Thêm sản phẩm</h2>
+    <form id="productForm">
+      <input type="hidden" id="productIndex">
+      <label>Tên sản phẩm<input name="name" required></label>
+      <label>Giá bán (điền số, ví dụ: 150000)<input name="price" type="number" required></label>
+      <label>URL ảnh sản phẩm<input name="image" type="url"></label>
+      <label>Mô tả ngắn<textarea name="desc" rows="3"></textarea></label>
+      <div class="modal-buttons">
+        <button type="button" id="cancelProduct" class="btn btn-outline">Hủy</button>
+        <button type="submit" class="btn btn-primary">Lưu sản phẩm</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
